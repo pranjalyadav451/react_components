@@ -1,50 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import faker from 'faker';
+import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard'
+/**
+ * Props - communicating data from parent to child.
+ * Goal - To customize of configure the child component.
+ */
+
 const App = () => {
     return (
         <div className="ui container comments">
-            <div className="comment">
-                <a href="/" className="avatar">
-                    <img alt="avatar" src={faker.image.people()} />
-                </a>
+            <ApprovalCard>
+                <CommentDetail
+                    author="Sam"
+                    timeAgo="today at 4pm"
+                    text="good blog"
+                    fakerImage={faker.image.people()}
+                />
+            </ApprovalCard>
 
-                <div className="content">
-                    <a href="/" className="author">Sam</a>
-                    <div className="metadata">
-                        <span className="date">Today at 6:00 PM</span>
-                    </div>
-                    <div className="text">Nice Blog Post</div>
-                </div>
-            </div>
-            <div className="comment">
-                <a href="/" className="avatar">
-                    <img alt="avatar" src={faker.image.abstract()} />
-                </a>
-
-                <div className="content">
-                    <a href="/" className="author">Sam</a>
-                    <div className="metadata">
-                        <span className="date">Today at 6:00 PM</span>
-                    </div>
-                    <div className="text">Nice Blog Post</div>
-                </div>
-            </div>
-            <div className="comment">
-                <a href="/" className="avatar">
-                    <img alt="avatar" src={faker.image.abstract()} />
-                </a>
-
-                <div className="content">
-                    <a href="/" className="author">Sam</a>
-                    <div className="metadata">
-                        <span className="date">Today at 6:00 PM</span>
-                    </div>
-                    <div className="text">Nice Blog Post</div>
-                </div>
-            </div>
+            <CommentDetail
+                author="Alex"
+                timeAgo="today at 5pm"
+                text="informative blog"
+                fakerImage={faker.image.people()} />
+            <CommentDetail
+                author="Jane"
+                timeAgo="today at 6pm"
+                text="good blog post"
+                fakerImage={faker.image.people()}
+            />
         </div>
-
     )
 };
 ReactDOM.render(<App />, document.querySelector('#root'));
